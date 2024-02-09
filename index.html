@@ -9,24 +9,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
   <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f5f5f5;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+  }
+
+  header {
+    background-color: #005A9C;
+    color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
   }
 
   .inner {
     margin: auto;
     padding: 1rem;
     max-width: 960px;
-  }
-
-  .site-header {
-    background: #007BFF;
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
   }
 
   .site-header h1 {
@@ -66,16 +78,24 @@
   }
 
   footer {
-    background: #333;
-    color: #ccc;
+    background-color: #333;
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
   </style>
 </header>
 
 <body>
+  <nav>
+    <ul>
+      <li><a href="#about">会社概要</a></li>
+      <li><a href="#services">サービス</a></li>
+    </ul>
+  </nav>
   <div class="top">
     <div class="inner">
       <img src="willrobotics_logo.png" alt="WillRobotics Logo" width="320" />
@@ -83,6 +103,7 @@
       <p>WillRobotics Co.,Ltd.</p>
     </div>
   </div>
+  <section id="services">
   <div class="service">
     <div class="inner">
       <h2>ロボティクスと生成AIに関わるソフトウェア開発</h2>
@@ -102,6 +123,8 @@
       <p>★開発の委託に関する御連絡は下記連絡先にお願い致します。</p>
     </div>
   </div>
+  </section>
+  <section id="about">
   <div class="about">
     <div class="inner">
       <table>
@@ -130,6 +153,7 @@
       </table>
     </div>
   </div>
+  </section>
 <footer>
 © 2021 WillRobotics Co.,Ltd.
 </footer>
