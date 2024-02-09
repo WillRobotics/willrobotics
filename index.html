@@ -8,89 +8,95 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
   <style>
-    body {
-      color: #444444;
-      margin: 0;
-    }
-    body p {
-      font-size: 1rem;
-    }
-    .inner {
-      margin: auto;
-      width: auto;
-      padding: 1rem;
-      max-width: 600px;
-    }
-    .top {
-      margin: 0;
-      background: #ffffff;
-    }
-    .top h1 {
-      font-size: 2rem;
-      margin-bottom: 0;
-    }
-    .top p {
-      font-size: 1.5rem;
-      margin-top: 0;
-    }
-    .service {
-      margin-bottom: 2rem;
-    }
-    .service h2 {
-      font-size: 1.2rem;
-    }
-    .about {
-      margin: 0;
-      background: #eeeeee;
-    }
-    .about table {
-      margin: auto;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .about tr {
-      border-top: 0.5px solid #666666;
-    }
-    .about tr:last-child {
-      border-bottom: 0.5px solid #666666;
-    }
-    .about td {
-      padding-left: 1rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-    }
-    footer {
-      background: black;
-      color: #cccccc;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      text-align: center;
-    }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+  }
+
+  .inner {
+    margin: auto;
+    padding: 1rem;
+    max-width: 960px;
+  }
+
+  .site-header {
+    background: #007BFF;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .site-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  .site-header img {
+    max-height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .service, .about {
+    background: #ffffff;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .service h2, .service h3 {
+    color: #007BFF;
+  }
+
+  .about table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .about td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .service img, .service video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  footer {
+    background: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
   </style>
 </header>
 
 <body>
   <div class="top">
     <div class="inner">
-      <img src="willrobotics_logo.png" />
+      <img src="willrobotics_logo.png" alt="WillRobotics Logo" />
       <h1>合同会社 WillRobotics</h1>
       <p>WillRobotics Co.,Ltd.</p>
     </div>
   </div>
   <div class="service">
     <div class="inner">
-      <h2>ロボティクス・製造業に関わるソフトウェア開発</h2>
-      <p>業務の自動化、作業の効率化、品質の向上にむけたソフトウェアの開発を行っています。お客様の抱える課題に対し、要件定義から技術選定、開発、現場へのインテグレーションに取り組みます。</p>
-      <h3>LiDARや深度カメラを用いた点群処理</h3>
-      <p>ロボットの目となるLiDARや深度カメラを用いて取得した点群処理用のソフト開発を行います。ノイズ処理、マッチング、処理高速化、点群描画など。</p>
-      <img src="https://raw.githubusercontent.com/neka-nat/probreg/master/images/filterreg_noise.gif" width="512">
-      <h3>ロボットの軌道計画</h3>
-      <p>障害物を避けながらロボットが辿るべきゴールまでの最適経路を計算します。移動ロボットの経路生成、ロボットアームの動作生成など。</p>
-      <h3>インテグレーション・テスト</h3>
-      <p>実環境やシミュレーション環境を用いてソフトウェア全体をロボットに組み込んだ際のインテグレーションやテストを行います。</p>
-      <img src="https://raw.githubusercontent.com/neka-nat/ur_ws/master/images/grasping.gif" width="512" />
+      <h2>ロボティクスと生成AIに関わるソフトウェア開発</h2>
+      <p>ロボットによる自動化と生成AIの活用にむけたソフトウェアの開発を行っています。お客様の抱える課題に対し、要件定義から技術選定、開発、現場へのインテグレーションに取り組みます。</p>
+      <div>
+        <h3>自然言語を用いたロボットオペレーション</h3>
+        <p>自然言語による指示や、ロボットの動作生成プログラムのLLM(大規模言語モデル)による生成などよって、ロボットの現場導入を促進させます。汎用的なAIを使用し、事前学習させることなくスムーズな現場へのAI導入を行います。</p>
+        <video autoplay src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4" width="640" />
+      </div>
+      <div>
+        <h3>単眼カメラ深度センサ</h3>
+        <p>昨今のAI技術の発展により、通常のカメラを用いて3次元的な奥行き情報が取れるようになりました。こういった技術を組み込みデバイスのようなリソースの少ない環境下でも動かせるようにします。</p>
+        <img src="https://github.com/WillRobotics/willrobotics/blob/master/sample_depth.gif?raw=true" width="960" />
+      </div>
       <p>★開発の委託に関する御連絡は下記連絡先にお願い致します。</p>
     </div>
   </div>
