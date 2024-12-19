@@ -162,20 +162,81 @@
       }
     }
 
+    .service-categories {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin: 4rem 0;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .category-item {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      margin: 1rem;
+    }
+
+    .category-icon {
+      font-size: 3.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .category-description {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-gap: 20px;
+      gap: 2rem;
+      margin-top: 3rem;
     }
 
-    .service-item {
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-title {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-description {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .section-title {
       text-align: center;
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin: 3rem 0;
     }
 
-    .service-icon {
-      font-size: 3rem;
-      color: var(--secondary-color);
-      margin-bottom: 1rem;
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
     }
   </style>
 </head>
@@ -197,37 +258,65 @@
   </div>
 
   <section id="services">
-  <div class="service">
-    <div class="inner">
-      <h2>すべての"新しい"は"掛け算"から</h2>
-      <p>世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。</p>
-      <p>合同会社WillRoboticsではWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーの掛け合わせによって新たな価値を創造します。</p>
-      
-      <div class="service-grid">
-        <div class="service-item">
-          <i class="fas fa-globe service-icon"></i>
-          <h3>Web✕ロボティクス</h3>
-          <p>Webブラウザから直接ロボットの接続と操作を行うことで、専用PCやソフトのインストール無しでロボットを動かすことができるようになりました。</p>
-          <p>一般的なPCやタブレット、スマホといったあらゆるデバイスでのロボットの操作が可能になる技術です。</p>
-          <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス" />
+    <div class="service">
+      <div class="inner">
+        <h2>すべての"新しい"は"掛け算"から</h2>
+        <p>世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。</p>
+        <p>WillRoboticsはWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーの掛け合わせによって新たな価値を創造します。</p>
+
+        <div class="service-categories">
+          <div class="category-item">
+            <i class="fas fa-brain category-icon"></i>
+            <h3 class="category-title">Generative AI</h3>
+            <p class="category-description">GPT・Claude・Gemini・LLama・Qwen・Stable Diffusion など幅広いモデルの活用</p>
+          </div>
+
+          <div class="category-item">
+            <i class="fas fa-robot category-icon"></i>
+            <h3 class="category-title">Robotics</h3>
+            <p class="category-description">マニピュレータや移動ロボットのソフトウェアインテグレーション</p>
+          </div>
+
+          <div class="category-item">
+            <i class="fas fa-gamepad category-icon"></i>
+            <h3 class="category-title">Game, VR/AR</h3>
+            <p class="category-description">3Dを活用したVision Pro/Quest3などのVR・ARシステム</p>
+          </div>
         </div>
-        
-        <div class="service-item">
-          <i class="fas fa-robot service-icon"></i>
-          <h3>LLM✕ロボティクス</h3>
-          <p>自然言語による指示や、ロボットの動作プログラムのLLM(大規模言語モデル)による生成などにより、より簡単なロボットのインターフェースを作ることが可能になりました。</p>
-          <p>ロボットの導入や教育などでの活用が期待できる技術です。</p>
-          <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
+
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">お客様と共に新たな"掛け算"を創ります。</p>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <h3 class="service-title">Robotics × Web</h3>
+            <p class="service-description">ロボティクスとWebの融合</p>
+            <p class="service-description">ブラウザから直接ロボットを操作することで、スマホやタブレットといったあらゆるデバイスからロボットを操作できます。</p>
+            <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス" />
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">AI × Robotics</h3>
+            <p class="service-description">AIとロボティクスの融合</p>
+            <p class="service-description">ロボットのプログラムをAIが生成することで、様々な環境で動作するロボットシステムを構築できます。</p>
+            <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
+          </div>
+
+          <!--
+          <div class="service-card">
+            <h3 class="service-title">3D × AI</h3>
+            <p class="service-description">3DとAIの融合</p>
+          </div>
+
+          <div class="service-card">
+            <h3 class="service-title">VR × Robotics</h3>
+            <p class="service-description">VRとロボティクスの融合</p>
+          </div>
         </div>
+        -->
       </div>
     </div>
-    
-    <div class="inner">
-      <h2>お客様と共に新たな"掛け算"を創ります！</h2>
-      <p>開発やコンサルティングに関するお問い合わせは下記連絡先よりご連絡下さい。</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="about">
     <div class="about">
