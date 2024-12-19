@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-<header>
+<head>
   <title>合同会社 WillRobotics</title>
   <meta charset="utf-8">
   <meta name="description" content="合同会社 WillRobotics コーポレートサイト">
@@ -8,86 +8,161 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
   <style>
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
-  header {
-    background-color: #005A9C;
-    color: #ffffff;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-  }
+    :root {
+      --primary-color: #005A9C;
+      --secondary-color: #007BFF;
+      --text-color: #333;
+      --bg-color: #f4f4f4;
+    }
 
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
 
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
 
-  .inner {
-    margin: auto;
-    padding: 1rem;
-    max-width: 960px;
-  }
+    #hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-  .site-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 1;
+    }
 
-  .site-header img {
-    max-height: 100px;
-    margin-bottom: 10px;
-  }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 0.5s forwards;
+    }
 
-  .service, .about {
-    background: #ffffff;
-    margin: 20px 0;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
+    .hero-content p {
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 1s forwards;
+    }
 
-  .service h2, .service h3 {
-    color: #007BFF;
-  }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-  .about table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+    nav {
+      background-color: rgba(0, 90, 156, 0.8);
+      padding: 1rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
 
-  .about td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
 
-  .service img, .service video {
-    max-width: 100%;
-    height: auto;
-  }
+    nav ul li {
+      margin: 0 1rem;
+    }
 
-  footer {
-    background-color: #333;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary-color);
+    }
+
+    .inner {
+      margin: auto;
+      padding: 2rem;
+      max-width: 1200px;
+    }
+
+    .service, .about {
+      background: white;
+      margin: 2rem 0;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover, .about:hover {
+      transform: translateY(-5px);
+    }
+
+    .service h2, .service h3 {
+      color: var(--secondary-color);
+    }
+
+    .about table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .about td {
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .service img, .service video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .inner {
+        padding: 1rem;
+      }
+    }
   </style>
-</header>
+</head>
 
 <body>
   <nav>
@@ -96,76 +171,138 @@
       <li><a href="#services">サービス</a></li>
     </ul>
   </nav>
-  <div class="top">
-    <div class="inner">
-      <img src="willrobotics_logo.png" alt="WillRobotics Logo" width="320" />
+
+  <div class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
       <h1>合同会社 WillRobotics</h1>
-      <p>WillRobotics Co.,Ltd.</p>
+      <p>すべての"新しい"は"掛け算"から</p>
     </div>
   </div>
+
   <section id="services">
-  <div class="service">
-    <div class="inner">
-      <h2>すべての”新しい”は”掛け算”から</h2>
-      <p>世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。</p>
-      <p>合同会社WillRoboticsではWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーの掛け合わせによって新たな価値を創造します。</p>
-      <div>
-        <h3>Web✕ロボティクス</h3>
-        <p>Webブラウザから直接ロボットの接続と操作を行うことで、専用PCやソフトのインストール無しでロボットを動かすことができるようになりました。</p>
-        <p>一般的なPCやタブレット、スマホといったあらゆるデバイスでのロボットの操作が可能になる技術です。</p>
-        <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" width="320" />
+    <div class="service">
+      <div class="inner">
+        <h2>すべての"新しい"は"掛け算"から</h2>
+        <p>世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。</p>
+        <p>合同会社WillRoboticsではWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーの掛け合わせによって新たな価値を創造します。</p>
+        <div>
+          <h3>Web✕ロボティクス</h3>
+          <p>Webブラウザから直接ロボットの接続と操作を行うことで、専用PCやソフトのインストール無しでロボットを動かすことができるようになりました。</p>
+          <p>一般的なPCやタブレット、スマホといったあらゆるデバイスでのロボットの操作が可能になる技術です。</p>
+          <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス" />
+        </div>
+        <div>
+          <h3>LLM✕ロボティクス</h3>
+          <p>自然言語による指示や、ロボットの動作プログラムのLLM(大規模言語モデル)による生成などにより、より簡単なロボットのインターフェースを作ることが可能になりました。</p>
+          <p>ロボットの導入や教育などでの活用が期待できる技術です。</p>
+          <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
+        </div>
+        <div>
+          <h3>2D画像✕3D</h3>
+          <p>昨今のAI技術の発展により、通常の２Dカメラを用いて3次元的な奥行き情報が取れるようになりました。</p>
+          <p>これにより、より軽量・安価なカメラと組み込みデバイスで3Dデータを取得することができます。</p>
+          <img src="https://github.com/WillRobotics/willrobotics/blob/master/sample_depth.gif?raw=true" alt="2D画像×3D" />
+        </div>
       </div>
-      <div>
-        <h3>LLM✕ロボティクス</h3>
-        <p>自然言語による指示や、ロボットの動作プログラムのLLM(大規模言語モデル)による生成などにより、より簡単なロボットのインターフェースを作ることが可能になりました。</p>
-        <p>ロボットの導入や教育などでの活用が期待できる技術です。</p>
-        <video autoplay loop src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4" width="640" />
-      </div>
-      <div>
-        <h3>2D画像✕3D</h3>
-        <p>昨今のAI技術の発展により、通常の２Dカメラを用いて3次元的な奥行き情報が取れるようになりました。</p>
-        <p>これにより、より軽量・安価なカメラと組み込みデバイスで3Dデータを取得することができます。</p>
-        <img src="https://github.com/WillRobotics/willrobotics/blob/master/sample_depth.gif?raw=true" width="960" />
+      <div class="inner">
+        <h2>お客様と共に新たな"掛け算"を創ります！</h2>
+        <p>開発やコンサルティングに関するお問い合わせは下記連絡先よりご連絡下さい。</p>
       </div>
     </div>
-    <div class="inner">
-      <h2>お客様と共に新たな”掛け算”を創ります！</h2>
-      <p>開発やコンサルティングに関するお問い合わせは下記連絡先よりご連絡下さい。</p>
-    </div>
-  </div>
   </section>
+
   <section id="about">
-  <div class="about">
-    <div class="inner">
-      <table>
-        <tbody>
-          <tr>
-            <td>会社名</td>
-            <td>合同会社 WillRobotics</td>
-          </tr>
-          <tr>
-            <td>本店所在地</td>
-            <td>埼玉県和光市丸山台</td>
-          </tr>
-          <tr>
-            <td>設立</td>
-            <td>令和3年</td>
-          </tr>
-          <tr>
-            <td>代表</td>
-            <td>田中健太</td>
-          </tr>
-          <tr>
-            <td>お問い合わせ</td>
-            <td>info[at]willrobotics.com</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="about">
+      <div class="inner">
+        <h2>会社概要</h2>
+        <table>
+          <tbody>
+            <tr>
+              <td>会社名</td>
+              <td>合同会社 WillRobotics</td>
+            </tr>
+            <tr>
+              <td>本店所在地</td>
+              <td>埼玉県和光市丸山台</td>
+            </tr>
+            <tr>
+              <td>設立</td>
+              <td>令和3年</td>
+            </tr>
+            <tr>
+              <td>代表</td>
+              <td>田中健太</td>
+            </tr>
+            <tr>
+              <td>お問い合わせ</td>
+              <td>info[at]willrobotics.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
   </section>
-<footer>
-© 2021 WillRobotics Co.,Ltd.
-</footer>
+
+  <footer>
+    © 2021 WillRobotics Co.,Ltd.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Three.js scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Create a group to hold all objects
+    const group = new THREE.Group();
+    scene.add(group);
+
+    // Create multiple cubes with different colors
+    const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const cubeMaterials = [
+      new THREE.MeshBasicMaterial({ color: 0x005A9C }),
+      new THREE.MeshBasicMaterial({ color: 0x007BFF }),
+      new THREE.MeshBasicMaterial({ color: 0x00BFFF })
+    ];
+
+    for (let i = 0; i < 50; i++) {
+      const cube = new THREE.Mesh(cubeGeometry, cubeMaterials[Math.floor(Math.random() * cubeMaterials.length)]);
+      cube.position.set(
+        Math.random() * 10 - 5,
+        Math.random() * 10 - 5,
+        Math.random() * 10 - 5
+      );
+      cube.rotation.set(
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+        Math.random() * Math.PI
+      );
+      group.add(cube);
+    }
+
+    camera.position.z = 5;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      group.rotation.x += 0.001;
+      group.rotation.y += 0.002;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
