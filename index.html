@@ -4,17 +4,28 @@
   <title>合同会社 WillRobotics</title>
   <meta charset="utf-8">
   <meta name="description" content="合同会社 WillRobotics コーポレートサイト">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6A2m3V+nX9b9/E4mpLvQX1j1RZx6RG6qR75tCOgC57t3fZF7OMyxtW1AN" crossorigin="anonymous">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+    * {
+      box-sizing: border-box;
+    }
 
     :root {
       --primary-color: #005A9C;
       --secondary-color: #007BFF;
+      --accent-color: #00BFFF;
       --text-color: #333;
+      --text-light: #666;
       --bg-color: #f4f4f4;
+      --white: #fff;
+      --max-width: 1200px;
     }
 
     body {
@@ -24,12 +35,112 @@
       line-height: 1.6;
       color: var(--text-color);
       background-color: var(--bg-color);
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* Navigation */
+    nav {
+      background-color: var(--primary-color);
+      padding: 0.75rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 60px; /* ヘッダに十分な高さを確保 */
+    }
+
+    nav .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      margin: 0;
+    }
+
+    nav ul li a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0.25rem 0; /* テキストが潰れないよう上下に余白 */
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hamburger (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--white);
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 1rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
     .hero {
       height: 100vh;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 60px; /* ナビゲーション分を確保 */
     }
 
     #hero-canvas {
@@ -38,137 +149,116 @@
       left: 0;
       width: 100%;
       height: 100%;
+      z-index: -1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+      z-index: 0;
     }
 
     .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-align: center;
-      color: white;
+      color: var(--white);
       z-index: 1;
+      max-width: 90%;
+      animation: heroFade 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes heroFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-content h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeIn 1s ease-out 0.5s forwards;
+      letter-spacing: 0.05em;
     }
 
     .hero-content p {
       font-size: 1.5rem;
-      opacity: 0;
-      animation: fadeIn 1s ease-out 1s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    nav {
-      background-color: rgba(0, 90, 156, 0.8);
-      padding: 1rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      margin: 0 1rem;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: var(--secondary-color);
-    }
-
-    .inner {
-      margin: auto;
-      padding: 2rem;
-      max-width: 1200px;
-    }
-
-    .service, .about {
-      background: white;
-      margin: 2rem 0;
-      padding: 2rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .service:hover, .about:hover {
-      transform: translateY(-5px);
-    }
-
-    .service h2, .service h3 {
-      color: var(--secondary-color);
-    }
-
-    .about table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .about td {
-      padding: 1rem;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .service img, .service video {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background-color: var(--primary-color);
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      margin: 0 auto;
+      max-width: 400px;
+      line-height: 1.4;
     }
 
     @media (max-width: 768px) {
       .hero-content h1 {
         font-size: 2rem;
       }
-
       .hero-content p {
         font-size: 1rem;
       }
+    }
 
-      .inner {
-        padding: 1rem;
-      }
+    /* Common sections */
+    .inner {
+      margin: auto;
+      padding: 4rem 2rem;
+      max-width: var(--max-width);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin: 3rem 0 1rem 0;
+      font-weight: bold;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    /* Services Section */
+    #services {
+      background: var(--bg-color);
+    }
+
+    .intro-services {
+      background: var(--white);
+      margin-top: -4rem;
+      padding: 3rem 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-services h2 {
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+
+    .intro-services p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin: 0 auto 1.5rem auto;
+      max-width: 600px;
     }
 
     .service-categories {
       display: flex;
-      justify-content: space-around;
-      text-align: center;
-      margin: 4rem 0;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 2rem;
+      margin: 4rem 0;
     }
 
     .category-item {
@@ -176,29 +266,31 @@
       min-width: 250px;
       max-width: 300px;
       margin: 1rem;
+      text-align: center;
     }
 
     .category-icon {
-      font-size: 3.5rem;
+      font-size: 3rem;
       color: var(--primary-color);
       margin-bottom: 1rem;
     }
 
     .category-title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: var(--primary-color);
       margin-bottom: 0.5rem;
+      font-weight: bold;
     }
 
     .category-description {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--text-light);
       line-height: 1.6;
     }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -208,49 +300,104 @@
       padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
 
     .service-title {
       color: var(--primary-color);
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
+      font-weight: bold;
     }
 
     .service-description {
-      color: #666;
+      color: var(--text-light);
       font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--primary-color);
-      margin: 3rem 0;
+    .service-card img, .service-card video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 1rem;
     }
 
-    .section-subtitle {
+    /* About Section */
+    #about {
+      background: var(--bg-color);
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .about {
+      background: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .about:hover {
+      transform: translateY(-5px);
+    }
+
+    .about table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .about td {
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    .about td:first-child {
+      font-weight: bold;
+      color: var(--text-color);
+      width: 20%;
+      white-space: nowrap;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: var(--white);
       text-align: center;
-      color: #666;
-      margin-bottom: 3rem;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 
 <body>
-  <nav>
-    <ul>
-      <li><a href="#about">会社概要</a></li>
-      <li><a href="#services">サービス</a></li>
-    </ul>
+  <nav aria-label="Main Navigation">
+    <div class="logo">WillRobotics</div>
+    <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="main-menu">
+      <ul>
+        <li><a href="#about">会社概要</a></li>
+        <li><a href="#services">サービス</a></li>
+      </ul>
+    </div>
   </nav>
 
   <div class="hero">
     <canvas id="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>合同会社 WillRobotics</h1>
       <p>すべての"新しい"は"掛け算"から</p>
@@ -258,71 +405,52 @@
   </div>
 
   <section id="services">
-    <div class="service">
-      <div class="inner">
-        <h2>すべての"新しい"は"掛け算"から</h2>
-        <p>世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。</p>
-        <p>WillRoboticsはWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーの掛け合わせによって新たな価値を創造します。</p>
+    <div class="intro-services">
+      <h2>すべての"新しい"は"掛け算"から</h2>
+      <p>世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。  
+      WillRoboticsはWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーを組み合わせて、新たな価値を創造します。</p>
+      
+      <div class="service-categories">
+        <div class="category-item">
+          <i class="fas fa-brain category-icon"></i>
+          <h3 class="category-title">Generative AI</h3>
+          <p class="category-description">GPT・Claude・Gemini・LLama・Qwen・Stable Diffusionなど幅広いモデルの活用</p>
+        </div>
+        <div class="category-item">
+          <i class="fas fa-robot category-icon"></i>
+          <h3 class="category-title">Robotics</h3>
+          <p class="category-description">マニピュレータや移動ロボットのソフトウェアインテグレーション</p>
+        </div>
+        <div class="category-item">
+          <i class="fas fa-gamepad category-icon"></i>
+          <h3 class="category-title">Game, VR/AR</h3>
+          <p class="category-description">3Dを活用したVision Pro/Quest3などのVR・ARシステム</p>
+        </div>
+      </div>
+      
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">お客様と共に新たな"掛け算"を創ります。<br>開発やコンサルティングに関するお問い合わせは下記連絡先よりご連絡下さい。</p>
 
-        <div class="service-categories">
-          <div class="category-item">
-            <i class="fas fa-brain category-icon"></i>
-            <h3 class="category-title">Generative AI</h3>
-            <p class="category-description">GPT・Claude・Gemini・LLama・Qwen・Stable Diffusion など幅広いモデルの活用</p>
-          </div>
-
-          <div class="category-item">
-            <i class="fas fa-robot category-icon"></i>
-            <h3 class="category-title">Robotics</h3>
-            <p class="category-description">マニピュレータや移動ロボットのソフトウェアインテグレーション</p>
-          </div>
-
-          <div class="category-item">
-            <i class="fas fa-gamepad category-icon"></i>
-            <h3 class="category-title">Game, VR/AR</h3>
-            <p class="category-description">3Dを活用したVision Pro/Quest3などのVR・ARシステム</p>
-          </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3 class="service-title">Robotics × Web</h3>
+          <p class="service-description">ロボティクスとWebの融合<br>ブラウザからロボットを操作し、スマホやタブレットなど様々なデバイスに対応。</p>
+          <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス">
         </div>
 
-        <h2 class="section-title">Our Services</h2>
-        <p class="section-subtitle">お客様と共に新たな"掛け算"を創ります。</p>
-        <p class="section-subtitle">開発やコンサルティングに関するお問い合わせは下記連絡先よりご連絡下さい。</p>
-
-        <div class="service-grid">
-          <div class="service-card">
-            <h3 class="service-title">Robotics × Web</h3>
-            <p class="service-description">ロボティクスとWebの融合</p>
-            <p class="service-description">ブラウザから直接ロボットを操作することで、スマホやタブレットといったあらゆるデバイスからロボットを操作できます。</p>
-            <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス" />
-          </div>
-
-          <div class="service-card">
-            <h3 class="service-title">AI × Robotics</h3>
-            <p class="service-description">AIとロボティクスの融合</p>
-            <p class="service-description">ロボットのプログラムをAIが生成することで、様々な環境で動作するロボットシステムを構築できます。</p>
-            <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
-          </div>
-
-          <!--
-          <div class="service-card">
-            <h3 class="service-title">3D × AI</h3>
-            <p class="service-description">3DとAIの融合</p>
-          </div>
-
-          <div class="service-card">
-            <h3 class="service-title">VR × Robotics</h3>
-            <p class="service-description">VRとロボティクスの融合</p>
-          </div>
+        <div class="service-card">
+          <h3 class="service-title">AI × Robotics</h3>
+          <p class="service-description">AIがロボットプログラムを生成し、様々な環境で動作可能なロボットシステムを構築。</p>
+          <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
         </div>
-        -->
       </div>
     </div>
   </section>
 
   <section id="about">
-    <div class="about">
-      <div class="inner">
-        <h2>会社概要</h2>
+    <div class="inner">
+      <h2 class="section-title">会社概要</h2>
+      <div class="about">
         <table>
           <tbody>
             <tr>
@@ -357,17 +485,33 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
+    // Navigation toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('open');
+    });
+
     // Three.js scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('hero-canvas'), antialias: true });
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementById('hero-canvas'),
+      antialias: true
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Create a group to hold all objects
+    // Create a group to hold cubes
     const group = new THREE.Group();
     scene.add(group);
 
-    // Create multiple cubes with different colors
     const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
     const cubeMaterials = [
       new THREE.MeshBasicMaterial({ color: 0x005A9C }),
@@ -376,7 +520,8 @@
     ];
 
     for (let i = 0; i < 50; i++) {
-      const cube = new THREE.Mesh(cubeGeometry, cubeMaterials[Math.floor(Math.random() * cubeMaterials.length)]);
+      const material = cubeMaterials[Math.floor(Math.random() * cubeMaterials.length)];
+      const cube = new THREE.Mesh(cubeGeometry, material);
       cube.position.set(
         Math.random() * 10 - 5,
         Math.random() * 10 - 5,
@@ -392,19 +537,15 @@
 
     camera.position.z = 5;
 
-    // Animation loop
     function animate() {
       requestAnimationFrame(animate);
-
       group.rotation.x += 0.001;
       group.rotation.y += 0.002;
-
       renderer.render(scene, camera);
     }
 
     animate();
 
-    // Resize handler
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -413,5 +554,4 @@
   </script>
 </body>
 </html>
-
 
