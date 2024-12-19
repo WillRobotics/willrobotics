@@ -38,7 +38,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Navigation */
     nav {
       background-color: var(--primary-color);
       padding: 0.75rem 2rem;
@@ -49,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 60px; /* ヘッダに十分な高さを確保 */
+      min-height: 60px;
     }
 
     nav .logo {
@@ -67,17 +66,13 @@
       gap: 1.5rem;
     }
 
-    nav ul li {
-      margin: 0;
-    }
-
     nav ul li a {
       color: var(--white);
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95rem;
       line-height: 1.5;
-      padding: 0.25rem 0; /* テキストが潰れないよう上下に余白 */
+      padding: 0.25rem 0;
       display: inline-block;
       transition: color 0.3s ease;
     }
@@ -86,7 +81,6 @@
       color: var(--accent-color);
     }
 
-    /* Hamburger (mobile) */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -132,7 +126,6 @@
       }
     }
 
-    /* Hero Section */
     .hero {
       height: 100vh;
       position: relative;
@@ -140,7 +133,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 60px; /* ナビゲーション分を確保 */
+      padding-top: 60px; 
     }
 
     #hero-canvas {
@@ -201,7 +194,6 @@
       }
     }
 
-    /* Common sections */
     .inner {
       margin: auto;
       padding: 4rem 2rem;
@@ -223,7 +215,6 @@
       font-size: 1rem;
     }
 
-    /* Services Section */
     #services {
       background: var(--bg-color);
     }
@@ -329,7 +320,6 @@
       margin-top: 1rem;
     }
 
-    /* About Section */
     #about {
       background: var(--bg-color);
       padding-top: 2rem;
@@ -367,7 +357,6 @@
       white-space: nowrap;
     }
 
-    /* Footer */
     footer {
       background-color: var(--primary-color);
       color: var(--white);
@@ -494,7 +483,6 @@
       navLinks.classList.toggle('open');
     });
 
-    // Three.js scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -508,7 +496,6 @@
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Create a group to hold cubes
     const group = new THREE.Group();
     scene.add(group);
 
@@ -537,10 +524,24 @@
 
     camera.position.z = 5;
 
+    // マウス操作関連変数
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // ウィンドウ中央を基準としたマウス座標を取得
+    document.addEventListener('mousemove', (event) => {
+      mouseX = (event.clientX / window.innerWidth) * 2 - 1; // -1 ～ +1
+      mouseY = (event.clientY / window.innerHeight) * 2 - 1; // -1 ～ +1
+    });
+
     function animate() {
       requestAnimationFrame(animate);
-      group.rotation.x += 0.001;
-      group.rotation.y += 0.002;
+
+      // マウス位置に応じて回転を反映
+      // x軸回転はマウスの縦方向(Y)、y軸回転はマウスの横方向(X)に対応
+      group.rotation.x += 0.001 + (mouseY * 0.01);
+      group.rotation.y += 0.002 + (mouseX * 0.01);
+
       renderer.render(scene, camera);
     }
 
