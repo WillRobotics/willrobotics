@@ -352,18 +352,27 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
       margin-top: 3rem;
     }
 
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .service-card {
       background: white;
-      padding: 2rem;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: transform var(--transition), box-shadow var(--transition);
-      text-align: left;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
     }
 
     .service-card:hover {
@@ -385,14 +394,20 @@
       margin-bottom: 1rem;
     }
 
-    .service-card img, .service-card video {
-      max-width: 100%;
-      height: auto;
+    .service-media {
+      width: 100%;
       border-radius: 8px;
-      margin-top: 1rem;
+      overflow: hidden;
     }
 
-    /* About */
+    .service-media img, .service-media video {
+      width: 50%;
+      height: auto;
+      margin: auto;
+      display: block;
+    }
+
+    /* About Section */
     #about {
       background: var(--bg-color);
       padding-top: 2rem;
@@ -505,13 +520,17 @@
         <div class="service-card">
           <h3 class="service-title">Robotics × Web</h3>
           <p class="service-description">ロボティクスとWebの融合<br>ブラウザからロボットを操作し、スマホやタブレットなど様々なデバイスに対応。</p>
-          <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス">
+          <div class="service-media">
+            <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス">
+          </div>
         </div>
 
         <div class="service-card">
           <h3 class="service-title">AI × Robotics</h3>
           <p class="service-description">AIがロボットプログラムを生成し、様々な環境で動作可能なロボットシステムを構築。</p>
-          <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
+          <div class="service-media">
+            <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
+          </div>
         </div>
       </div>
     </div>
@@ -622,7 +641,6 @@
     function animate() {
       requestAnimationFrame(animate);
 
-      // Subtle rotation influenced by mouse position
       group.rotation.x += 0.001 + (mouseY * 0.01);
       group.rotation.y += 0.002 + (mouseX * 0.01);
 
