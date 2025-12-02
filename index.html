@@ -1,170 +1,154 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>合同会社 WillRobotics</title>
+  <title>合同会社 WillRobotics | Future of Integration</title>
   <meta charset="utf-8">
-  <meta name="description" content="合同会社 WillRobotics コーポレートサイト">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6A2m3V+nX9b9/E4mpLvQX1J1RZx6RG6qR75tCOgC57t3fZF7OMyxtW1AN" crossorigin="anonymous">
+  <meta name="description" content="合同会社 WillRobotics コーポレートサイト - 先端テクノロジーで新たな価値を創造します">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS (Utility classes for rapid styling if needed, but we use custom CSS primarily) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     :root {
-      --primary: #0066FF;
-      --secondary: #00D4FF;
-      --accent: #FF006E;
-      --dark: #0a0e27;
-      --dark-light: #1a1f3a;
-      --text: #E8E9F3;
-      --text-muted: #A0A3BD;
-      --white: #ffffff;
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #0066FF 0%, #00D4FF 100%);
-      --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      --shadow-hover: 0 30px 80px rgba(0, 0, 0, 0.4);
+      --bg-color: #050511;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #3b82f6;
+      --secondary: #8b5cf6;
+      --accent: #06b6d4;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-en: 'Inter', sans-serif;
+      --font-jp: 'Noto Sans JP', sans-serif;
     }
 
+    /* Base Styles */
     body {
-      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-jp);
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--dark);
-      -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .en-font {
+      font-family: var(--font-en);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-color);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
     }
 
     /* Navigation */
     nav {
-      background: rgba(10, 14, 39, 0.85);
       position: fixed;
-      width: 100%;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 4rem;
-      backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
+      padding: 1.5rem 2rem;
     }
 
     nav.scrolled {
-      padding: 0.75rem 4rem;
-      background: rgba(10, 14, 39, 0.95);
+      padding: 1rem 2rem;
+      background: rgba(5, 5, 17, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
     }
 
-    nav .logo {
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
       font-size: 1.5rem;
-      font-weight: 900;
-      background: var(--gradient-2);
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.05em;
     }
 
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .nav-links {
       display: flex;
-      gap: 3rem;
+      gap: 2rem;
     }
 
-    nav ul li a {
-      color: var(--text);
+    .nav-links a {
+      color: var(--text-main);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 500;
       position: relative;
-      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+      transition: color 0.3s;
     }
 
-    nav ul li a::after {
-      content: "";
+    .nav-links a::after {
+      content: '';
       position: absolute;
-      bottom: -8px;
+      bottom: 0;
       left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--gradient-2);
+      width: 0;
+      height: 1px;
+      background: var(--accent);
       transition: width 0.3s ease;
     }
 
-    nav ul li a:hover {
-      color: var(--secondary);
-    }
-
-    nav ul li a:hover::after {
+    .nav-links a:hover::after {
       width: 100%;
     }
 
+    /* Hamburger Menu */
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
       cursor: pointer;
+      z-index: 1001;
     }
-
     .hamburger span {
-      width: 25px;
+      width: 24px;
       height: 2px;
-      background: var(--white);
-      transition: all 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem 2rem;
-      }
-      
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        right: 0;
-        background: rgba(10, 14, 39, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 2rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        border-left: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .nav-links.open {
-        transform: translateX(0);
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+      background-color: white;
+      transition: 0.3s;
     }
 
     /* Hero Section */
     .hero {
       height: 100vh;
       position: relative;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 80px;
+      overflow: hidden;
     }
 
     #hero-canvas {
@@ -176,647 +160,620 @@
       z-index: 1;
     }
 
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 30% 50%, rgba(102, 126, 234, 0.15), transparent 50%),
-                  radial-gradient(circle at 70% 50%, rgba(0, 212, 255, 0.15), transparent 50%);
-      z-index: 2;
-    }
-
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 10;
       text-align: center;
-      color: var(--white);
-      max-width: 90%;
-      animation: heroFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      opacity: 0;
-      transform: translateY(40px);
+      padding: 0 1rem;
     }
 
-    @keyframes heroFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-content h1 {
-      font-size: 4.5rem;
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.1;
       margin-bottom: 1.5rem;
-      letter-spacing: -0.03em;
-      font-weight: 900;
-      background: linear-gradient(135deg, #ffffff 0%, #00D4FF 100%);
+      background: linear-gradient(to right, #fff, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.2s forwards;
     }
 
-    .hero-content p {
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto 3rem auto;
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 3rem;
       line-height: 1.8;
-      color: var(--text);
-      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.4s forwards;
     }
 
-    .hero-cta {
+    .hero-btn {
       display: inline-block;
-      background: var(--gradient-2);
-      color: var(--white);
       padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 10px 40px rgba(0, 102, 255, 0.3);
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.6s forwards;
     }
 
-    .hero-cta::before {
-      content: '';
+    .hero-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      border-color: var(--primary);
+    }
+
+    .scroll-indicator {
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .hero-cta:hover::before {
-      left: 100%;
-    }
-
-    .hero-cta:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 15px 50px rgba(0, 102, 255, 0.4);
-    }
-
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 2.8rem;
-      }
-      .hero-content p {
-        font-size: 1.1rem;
-      }
-    }
-
-    /* Services Section */
-    #services {
-      background: var(--dark);
-      padding: 6rem 2rem;
-      position: relative;
-    }
-
-    #services::before {
-      content: '';
-      position: absolute;
-      top: 0;
+      bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 100%;
-      height: 300px;
-      background: radial-gradient(circle, rgba(0, 102, 255, 0.1), transparent 70%);
-      pointer-events: none;
+      animation: bounce 2s infinite;
+      z-index: 10;
+      opacity: 0.5;
     }
 
-    .intro-services {
+    /* Sections General */
+    section {
+      padding: 8rem 2rem;
+      position: relative;
       max-width: 1200px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
+    }
+
+    .section-header {
+      margin-bottom: 5rem;
       text-align: center;
-    }
-
-    .intro-services h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: 900;
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
-    }
-
-    .intro-services > p {
-      color: var(--text-muted);
-      line-height: 2;
-      margin: 0 auto 4rem auto;
-      max-width: 800px;
-      font-size: 1.1rem;
-    }
-
-    .service-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 5rem 0;
-    }
-
-    .category-item {
-      background: rgba(26, 31, 58, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      text-align: center;
-      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .category-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--gradient-2);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      z-index: 0;
-    }
-
-    .category-item:hover::before {
-      opacity: 0.1;
-    }
-
-    .category-item:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: rgba(0, 212, 255, 0.5);
-      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
-    }
-
-    .category-item > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .category-icon {
-      font-size: 3.5rem;
-      background: var(--gradient-2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 1.5rem;
-      display: inline-block;
-    }
-
-    .category-title {
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .category-description {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.8;
     }
 
     .section-title {
-      text-align: center;
-      font-size: 2.8rem;
-      margin: 5rem 0 1rem 0;
-      font-weight: 900;
-      background: var(--gradient-2);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
     }
 
-    .section-subtitle {
-      text-align: center;
+    .section-desc {
       color: var(--text-muted);
-      margin-bottom: 4rem;
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .service-grid {
+    /* Bento Grid Layout for Services */
+    .bento-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      gap: 3rem;
-      margin-top: 4rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    @media (max-width: 768px) {
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .service-card {
-      background: rgba(26, 31, 58, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      padding: 2.5rem;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2rem;
+      backdrop-filter: blur(20px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      overflow: hidden;
     }
 
-    .service-card::before {
+    /* Glow Effect on Hover */
+    .card::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 50%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 24px;
+      padding: 1px;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
     }
 
-    .service-card:hover::before {
-      opacity: 1;
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
     }
 
-    .service-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0, 212, 255, 0.5);
-      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      width: fit-content;
     }
 
-    .service-title {
-      color: var(--white);
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
       font-weight: 700;
-      position: relative;
-      z-index: 1;
     }
 
-    .service-description {
+    .card p {
       color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex-grow: 1;
     }
 
-    .service-media {
-      width: 100%;
-      border-radius: 15px;
+    /* Specific Grid Spans */
+    .col-span-2 { grid-column: span 2; }
+    .col-span-3 { grid-column: span 3; }
+    
+    @media (max-width: 900px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .col-span-2, .col-span-3 { grid-column: span 1; }
+    }
+
+    /* Project Cards (Media) */
+    .media-card {
+      padding: 0;
+      border: 0;
+      background: none;
+      overflow: visible;
+    }
+    
+    .media-container {
+      border-radius: 20px;
       overflow: hidden;
       position: relative;
-      z-index: 1;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--card-border);
+      aspect-ratio: 16/9;
+      background: #000;
     }
 
-    .service-media img, .service-media video {
+    .media-container img, 
+    .media-container video, 
+    .media-container iframe {
       width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.4s ease;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
 
-    .service-card:hover .service-media img,
-    .service-card:hover .service-media video {
+    .media-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      z-index: 2;
+    }
+
+    .media-card:hover .media-container img,
+    .media-card:hover .media-container video {
       transform: scale(1.05);
     }
 
     /* About Section */
-    #about {
-      background: var(--dark);
-      padding: 6rem 2rem;
+    .about-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
       position: relative;
     }
-
-    .inner {
-      max-width: 1200px;
-      margin: 0 auto;
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
     }
 
-    .about {
-      background: rgba(26, 31, 58, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      border-radius: 20px;
-      padding: 3rem;
-      transition: all 0.4s ease;
-      max-width: 900px;
-      margin: 0 auto;
+    .about-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .about:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0, 212, 255, 0.5);
-      box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+    .about-label {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    .about table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-
-    .about td {
-      padding: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      vertical-align: top;
-      font-size: 1rem;
-    }
-
-    .about td:first-child {
-      font-weight: 700;
-      color: var(--secondary);
-      width: 25%;
-      white-space: nowrap;
-    }
-
-    .about td:last-child {
-      color: var(--text);
+    .about-value {
+      font-size: 1.1rem;
+      font-weight: 500;
     }
 
     /* Footer */
     footer {
-      background: rgba(10, 14, 39, 0.9);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 2rem;
       text-align: center;
-      padding: 2rem;
-      margin-top: 4rem;
+      background: #02020a;
+    }
+    
+    footer p {
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
 
-    footer p {
-      margin: 0;
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Scroll reveal animations */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+      40% {transform: translateY(-10px) translateX(-50%);}
+      60% {transform: translateY(-5px) translateX(-50%);}
+    }
+
     .reveal {
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
     }
-
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(5, 5, 17, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s ease;
+        border-left: 1px solid var(--card-border);
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <nav aria-label="Main Navigation">
-    <div class="logo">WillRobotics</div>
-    <div class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="nav-links">
-      <ul>
-        <li><a href="#about">会社概要</a></li>
-        <li><a href="#services">サービス</a></li>
-      </ul>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">WillRobotics</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Works</a>
+        <a href="mailto:info@willrobotics.com" style="color: var(--accent);">Contact</a>
+      </div>
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <div class="hero">
     <canvas id="hero-canvas"></canvas>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>WillRobotics</h1>
-      <p>すべての"新しい"は"掛け算"から<br>先端テクノロジーで新たな価値を創造します</p>
-      <a href="mailto:info@willrobotics.com" class="hero-cta">お問い合わせ</a>
+      <h1 class="hero-title">New Value through<br>Integration</h1>
+      <p class="hero-subtitle">すべての"新しい"は"掛け算"から。<br>Web, AI, Roboticsを融合し、未踏の体験を創造します。</p>
+      <a href="#services" class="hero-btn">Explore More</a>
+    </div>
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down text-white"></i>
     </div>
   </div>
 
+  <!-- Concept & Tech Stack Section -->
   <section id="services">
-    <div class="intro-services">
-      <h2 class="reveal">すべての"新しい"は"掛け算"から</h2>
-      <p class="reveal">世の中の新たなアイデア・発想は、既存のものの掛け算（組み合わせ）によって創られます。<br>WillRoboticsはWeb、VR、ロボティクス、AI、画像処理といった様々なテクノロジーを組み合わせて、新たな価値を創造します。</p>
-      
-      <div class="service-categories">
-        <div class="category-item reveal">
-          <i class="fas fa-brain category-icon"></i>
-          <h3 class="category-title">Generative AI</h3>
-          <p class="category-description">ChatGPT・Claude・Gemini・Llama・Qwen・Stable Diffusionなど幅広いモデルの活用</p>
-        </div>
-        <div class="category-item reveal">
-          <i class="fas fa-robot category-icon"></i>
-          <h3 class="category-title">Robotics</h3>
-          <p class="category-description">マニピュレータや移動ロボットのソフトウェアインテグレーション</p>
-        </div>
-        <div class="category-item reveal">
-          <i class="fas fa-gamepad category-icon"></i>
-          <h3 class="category-title">Game, VR/AR</h3>
-          <p class="category-description">3Dを活用したVision Pro/Quest3などのVR・ARシステム</p>
-        </div>
-      </div>
-      
-      <h2 class="section-title reveal">Our Services</h2>
-      <p class="section-subtitle reveal">お客様と共に新たな"掛け算"を創ります。<br>開発やコンサルティングに関するお問い合わせは下記連絡先よりご連絡下さい。</p>
+    <div class="section-header reveal">
+      <h2 class="section-title">Core Technologies</h2>
+      <p class="section-desc">既存のアイデア・技術を組み合わせ、新しい文脈で再定義する。<br>WillRoboticsは複数の技術領域を横断するエンジニアリング集団です。</p>
+    </div>
 
-      <div class="service-grid">
-        <div class="service-card reveal">
-          <h3 class="service-title">Robotics × Web</h3>
-          <p class="service-description">ロボティクスとWebの融合<br>ブラウザからロボットを操作し、スマホやタブレットなど様々なデバイスに対応。</p>
-          <div class="service-media">
-            <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web×ロボティクス">
-          </div>
-        </div>
-
-        <div class="service-card reveal">
-          <h3 class="service-title">AI × Robotics</h3>
-          <p class="service-description">AIがロボットプログラムを生成し、様々な環境で動作可能なロボットシステムを構築。</p>
-          <div class="service-media">
-            <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
-          </div>
-        </div>
+    <div class="bento-grid">
+      <!-- Card 1 -->
+      <div class="card reveal">
+        <div class="card-icon"><i class="fas fa-brain"></i></div>
+        <h3>Generative AI</h3>
+        <p>ChatGPT, Claude, Gemini, Llama等のLLM活用から、Stable Diffusionによる画像生成まで。業務効率化システムやクリエイティブ支援ツールへの統合を行います。</p>
       </div>
 
-      <div class="service-card reveal">
-        <h3 class="service-title">AI Agent × Webサービス</h3>
-        <p class="service-description">AIエージェントを活用したWebサービスの構築。</p>
-        <div class="service-media">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/KtnP6J_9k68?si=VD3_aozqji8Q11Sq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <!-- Card 2 -->
+      <div class="card reveal">
+        <div class="card-icon"><i class="fas fa-robot"></i></div>
+        <h3>Robotics</h3>
+        <p>ROS/ROS2を用いた自律移動ロボット、マニピュレータの制御ソフトウェア開発。ハードウェアとクラウドを繋ぐインテグレーションを提供します。</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card reveal">
+        <div class="card-icon"><i class="fas fa-vr-cardboard"></i></div>
+        <h3>Spatial Computing</h3>
+        <p>Vision Pro, Meta Quest 3を活用した没入型アプリケーション開発。デジタルツインや遠隔操作インターフェースの構築を行います。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section (The "Works" styling) -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <h2 class="section-title">Our Works</h2>
+      <p class="section-desc">技術の掛け算が生み出す、実際のプロジェクト事例。</p>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Project 1: Large Span -->
+      <div class="media-card col-span-2 reveal">
+        <div class="media-container">
+          <img src="https://github.com/WillRobotics/willrobotics/blob/master/web_robot.gif?raw=true" alt="Web Robot Interface">
+          <div class="media-overlay">
+            <h3 class="text-xl font-bold text-white mb-1">Robotics × Web</h3>
+            <p class="text-gray-300 text-sm">ブラウザベースのロボット操作インターフェース。デバイスを選ばない遠隔制御を実現。</p>
+          </div>
         </div>
-        <div class="service-media">
-          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/TZCaRyp9o2I?si=fSC2AHL5j_U7fiXE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="media-card reveal">
+        <div class="media-container">
+          <video autoplay loop muted playsinline src="https://hackster.imgix.net/uploads/attachments/1671535/15-_1__nSX2ItPQyh.gif?auto=format%2Ccompress&gifq=35&w=900&h=675&fit=min&fm=mp4"></video>
+          <div class="media-overlay">
+            <h3 class="text-xl font-bold text-white mb-1">AI × Robotics</h3>
+            <p class="text-gray-300 text-sm">LLMによるロボットコード生成と適応制御。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Full Width -->
+      <div class="media-card col-span-3 reveal">
+        <div class="media-container" style="aspect-ratio: 21/9;">
+           <!-- Using placeholder image/iframe style for better presentation -->
+           <div style="display:flex; height: 100%;">
+             <iframe style="flex:1;" src="https://www.youtube-nocookie.com/embed/KtnP6J_9k68?si=VD3_aozqji8Q11Sq&controls=0&mute=1&autoplay=1&loop=1&playlist=KtnP6J_9k68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+             <iframe style="flex:1;" class="hidden md:block" src="https://www.youtube-nocookie.com/embed/TZCaRyp9o2I?si=fSC2AHL5j_U7fiXE&controls=0&mute=1&autoplay=1&loop=1&playlist=TZCaRyp9o2I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+           </div>
+          <div class="media-overlay">
+            <h3 class="text-xl font-bold text-white mb-1">AI Agent × Web Services</h3>
+            <p class="text-gray-300 text-sm">自律型AIエージェントによるWebサービスの自動運用・対話型インターフェース。</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- About Section -->
   <section id="about">
-    <div class="inner">
-      <h2 class="section-title reveal">会社概要</h2>
-      <div class="about reveal">
-        <table>
-          <tbody>
-            <tr>
-              <td>会社名</td>
-              <td>合同会社 WillRobotics</td>
-            </tr>
-            <tr>
-              <td>本店所在地</td>
-              <td>埼玉県和光市丸山台</td>
-            </tr>
-            <tr>
-              <td>設立</td>
-              <td>令和3年</td>
-            </tr>
-            <tr>
-              <td>代表</td>
-              <td>田中健太</td>
-            </tr>
-            <tr>
-              <td>お問い合わせ</td>
-              <td>info[at]willrobotics.com</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="section-header reveal">
+      <h2 class="section-title">Company</h2>
+    </div>
+    
+    <div class="about-container reveal">
+      <div class="about-grid">
+        <div class="about-item">
+          <span class="about-label">Company Name</span>
+          <span class="about-value">合同会社 WillRobotics</span>
+        </div>
+        <div class="about-item">
+          <span class="about-label">Established</span>
+          <span class="about-value">令和3年 (2021)</span>
+        </div>
+        <div class="about-item">
+          <span class="about-label">Representative</span>
+          <span class="about-value">田中 健太</span>
+        </div>
+        <div class="about-item">
+          <span class="about-label">Location</span>
+          <span class="about-value">埼玉県和光市丸山台</span>
+        </div>
+        <div class="about-item col-span-2">
+           <span class="about-label">Contact</span>
+           <span class="about-value font-mono">info[at]willrobotics.com</span>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2021 WillRobotics Co.,Ltd. All Rights Reserved.</p>
+    <div class="logo mb-4" style="font-size: 1.2rem;">WillRobotics</div>
+    <p>&copy; 2021 WillRobotics Co.,Ltd. All Rights Reserved.</p>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
-    // Navigation
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const nav = document.querySelector('nav');
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // --- UI Interactions ---
+      
+      // Mobile Menu
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      const nav = document.querySelector('nav');
 
-    hamburger.addEventListener('click', () => {
-      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-      hamburger.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('open');
-    });
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Simple visual toggle for hamburger lines could be added here
+      });
 
-    // Scroll effect for nav
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    });
+      // Close menu when link is clicked
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    
-    const revealOnScroll = () => {
-      reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (elementTop < windowHeight - 100) {
-          element.classList.add('active');
+      // Navbar Scroll Effect
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
         }
       });
-    };
 
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+      // Intersection Observer for Reveal Animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
 
-    // Three.js Hero Background
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({
-      canvas: document.getElementById('hero-canvas'),
-      antialias: true,
-      alpha: true
-    });
-    
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x0a0e27, 1);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
 
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1000;
-    const posArray = new Float32Array(particlesCount * 3);
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    for(let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 50;
-    }
 
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.05,
-      color: 0x00D4FF,
-      transparent: true,
-      opacity: 0.8,
-      blending: THREE.AdditiveBlending
-    });
-
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-
-    // Add geometric shapes
-    const geometry = new THREE.TorusGeometry(10, 1, 16, 100);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x0066FF,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.1
-    });
-    const torus = new THREE.Mesh(geometry, material);
-    scene.add(torus);
-
-    camera.position.z = 20;
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    document.addEventListener('mousemove', (event) => {
-      mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    });
-
-    const clock = new THREE.Clock();
-
-    function animate() {
-      requestAnimationFrame(animate);
+      // --- Three.js Background (Optimized & Styled) ---
       
-      const elapsedTime = clock.getElapsedTime();
-      
-      particlesMesh.rotation.y = elapsedTime * 0.05;
-      particlesMesh.rotation.x = mouseY * 0.5;
-      particlesMesh.rotation.z = mouseX * 0.5;
-      
-      torus.rotation.x = elapsedTime * 0.1;
-      torus.rotation.y = elapsedTime * 0.15;
-      torus.rotation.z = elapsedTime * 0.05;
+      const canvas = document.getElementById('hero-canvas');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true
+      });
 
-      renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Particles - increased density for "Data" look
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 1500;
+      const posArray = new Float32Array(particlesCount * 3);
+      // Add random colors to particles for modern look
+      const colorsArray = new Float32Array(particlesCount * 3);
+
+      const color1 = new THREE.Color(0x3b82f6); // Blue
+      const color2 = new THREE.Color(0x06b6d4); // Cyan
+
+      for(let i = 0; i < particlesCount * 3; i+=3) {
+        // Position
+        posArray[i] = (Math.random() - 0.5) * 40;
+        posArray[i+1] = (Math.random() - 0.5) * 40;
+        posArray[i+2] = (Math.random() - 0.5) * 40;
+        
+        // Color mixing
+        const mixedColor = color1.clone().lerp(color2, Math.random());
+        colorsArray[i] = mixedColor.r;
+        colorsArray[i+1] = mixedColor.g;
+        colorsArray[i+2] = mixedColor.b;
+      }
+
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
+
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.04,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+      });
+
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+
+      // Geometric Shape (Icosahedron instead of Torus for more "AI/Tech" feel)
+      const geoGeometry = new THREE.IcosahedronGeometry(8, 1);
+      const geoMaterial = new THREE.MeshBasicMaterial({
+        color: 0x3b82f6,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.05
+      });
+      const geoMesh = new THREE.Mesh(geoGeometry, geoMaterial);
+      scene.add(geoMesh);
+
+      camera.position.z = 15;
+
+      // Mouse Interaction
+      let mouseX = 0;
+      let mouseY = 0;
+      let targetX = 0;
+      let targetY = 0;
+
+      const windowHalfX = window.innerWidth / 2;
+      const windowHalfY = window.innerHeight / 2;
+
+      document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX - windowHalfX);
+        mouseY = (event.clientY - windowHalfY);
+      });
+
+      // Animate
+      const clock = new THREE.Clock();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const elapsedTime = clock.getElapsedTime();
+
+        targetX = mouseX * 0.001;
+        targetY = mouseY * 0.001;
+
+        // Smooth rotation based on mouse
+        particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
+        particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
+        
+        // Constant gentle rotation
+        particlesMesh.rotation.z = elapsedTime * 0.02;
+
+        // Brething effect for the wireframe
+        const scale = 1 + Math.sin(elapsedTime * 0.5) * 0.05;
+        geoMesh.scale.set(scale, scale, scale);
+        geoMesh.rotation.x = elapsedTime * 0.05;
+        geoMesh.rotation.y = elapsedTime * 0.05;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+
+      // Resize handling
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
     });
   </script>
 </body>
