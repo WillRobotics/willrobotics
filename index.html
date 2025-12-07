@@ -5,15 +5,15 @@
   <meta charset="utf-8">
   <meta name="description" content="合同会社 WillRobotics コーポレートサイト - Physical AIの開発請負">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
+
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
+
   <!-- Tailwind CSS (Utility classes for rapid styling if needed, but we use custom CSS primarily) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -144,7 +144,7 @@
       display: flex; /* 中央揃えを確実にするため */
       align-items: center;
     }
-    
+
     .nav-socials a::after {
       display: none; /* アイコンには下線を出さない */
     }
@@ -347,7 +347,7 @@
     /* Specific Grid Spans */
     .col-span-2 { grid-column: span 2; }
     .col-span-3 { grid-column: span 3; }
-    
+
     @media (max-width: 900px) {
       .bento-grid { grid-template-columns: 1fr; }
       .col-span-2, .col-span-3 { grid-column: span 1; }
@@ -360,7 +360,7 @@
       background: none;
       overflow: visible;
     }
-    
+
     .media-container {
       border-radius: 20px;
       overflow: hidden;
@@ -370,8 +370,8 @@
       background: #000;
     }
 
-    .media-container img, 
-    .media-container video, 
+    .media-container img,
+    .media-container video,
     .media-container iframe {
       width: 100%;
       height: 100%;
@@ -403,7 +403,7 @@
       backdrop-filter: blur(10px);
       position: relative;
     }
-    
+
     .about-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -436,7 +436,38 @@
       text-align: center;
       background: #02020a;
     }
-    
+
+    /* Footer Socials */
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem; /* 間隔を広げました (2rem -> 2.5rem) */
+      margin: 3rem 0; /* マージンを増やしました */
+    }
+
+    .footer-social-link {
+      width: 56px; /* ボタンサイズを大きくしました (40px -> 56px) */
+      height: 56px; /* ボタンサイズを大きくしました (40px -> 56px) */
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 1.6rem; /* アイコンサイズを大きくしました (1.2rem -> 1.6rem) */
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .footer-social-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--primary);
+      transform: translateY(-4px); /* 浮き上がり量を調整 */
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3); /* 影を強化 */
+      border-color: var(--primary);
+    }
+
     footer p {
       color: var(--text-muted);
       font-size: 0.9rem;
@@ -490,6 +521,29 @@
         font-size: 2.5rem;
       }
     }
+
+    /* モバイルメニュー内のSNSリンク調整 */
+    .nav-socials {
+      display: flex;
+      gap: 1.5rem;
+      margin-left: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--card-border);
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .nav-socials {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        margin-top: 2rem;
+        border-top: 1px solid var(--card-border);
+        padding-top: 2rem;
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -509,6 +563,7 @@
         <a href="#projects">Works</a>
         <a href="mailto:info@willrobotics.com" style="color: var(--accent);">Contact</a>
 
+        <!-- ヘッダー内SNSリンク -->
         <div class="nav-socials">
           <a href="https://x.com/neka_nat" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="https://github.com/neka-nat" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -614,7 +669,7 @@
     <div class="section-header reveal">
       <h2 class="section-title">Company</h2>
     </div>
-    
+
     <div class="about-container reveal">
       <div class="about-grid">
         <div class="about-item">
@@ -664,9 +719,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      
+
       // --- UI Interactions ---
-      
+
       // Mobile Menu
       const hamburger = document.querySelector('.hamburger');
       const navLinks = document.querySelector('.nav-links');
@@ -711,7 +766,7 @@
 
 
       // --- Three.js Background (Optimized & Styled) ---
-      
+
       const canvas = document.getElementById('hero-canvas');
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -724,23 +779,20 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      // Particles - increased density for "Data" look
+      // Particles - Background
       const particlesGeometry = new THREE.BufferGeometry();
-      const particlesCount = 1500;
+      const particlesCount = 800;
       const posArray = new Float32Array(particlesCount * 3);
-      // Add random colors to particles for modern look
       const colorsArray = new Float32Array(particlesCount * 3);
 
       const color1 = new THREE.Color(0x3b82f6); // Blue
       const color2 = new THREE.Color(0x06b6d4); // Cyan
 
       for(let i = 0; i < particlesCount * 3; i+=3) {
-        // Position
-        posArray[i] = (Math.random() - 0.5) * 40;
-        posArray[i+1] = (Math.random() - 0.5) * 40;
-        posArray[i+2] = (Math.random() - 0.5) * 40;
-        
-        // Color mixing
+        posArray[i] = (Math.random() - 0.5) * 60;
+        posArray[i+1] = (Math.random() - 0.5) * 60;
+        posArray[i+2] = (Math.random() - 0.5) * 60;
+
         const mixedColor = color1.clone().lerp(color2, Math.random());
         colorsArray[i] = mixedColor.r;
         colorsArray[i+1] = mixedColor.g;
@@ -751,28 +803,65 @@
       particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
 
       const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.04,
+        size: 0.05,
         vertexColors: true,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.6,
         blending: THREE.AdditiveBlending
       });
 
       const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
       scene.add(particlesMesh);
 
-      // Geometric Shape (Icosahedron instead of Torus for more "AI/Tech" feel)
-      const geoGeometry = new THREE.IcosahedronGeometry(8, 1);
-      const geoMaterial = new THREE.MeshBasicMaterial({
+
+      // --- Central Tech Object (Core + Orbits) ---
+
+      const mainGroup = new THREE.Group();
+      scene.add(mainGroup);
+
+      // 1. The Core (Tech Brain/AI Core)
+      // Icosahedron with higher detail for a rounder but faceted tech look
+      const coreGeometry = new THREE.IcosahedronGeometry(6, 1);
+      const coreMaterial = new THREE.MeshBasicMaterial({
         color: 0x3b82f6,
         wireframe: true,
         transparent: true,
-        opacity: 0.05
+        opacity: 0.8
       });
-      const geoMesh = new THREE.Mesh(geoGeometry, geoMaterial);
-      scene.add(geoMesh);
+      const coreMesh = new THREE.Mesh(coreGeometry, coreMaterial);
+      mainGroup.add(coreMesh);
 
-      camera.position.z = 15;
+      // Inner faint glow sphere
+      const glowGeometry = new THREE.IcosahedronGeometry(5, 1);
+      const glowMaterial = new THREE.MeshBasicMaterial({
+        color: 0x06b6d4,
+        transparent: true,
+        opacity: 0.1,
+      });
+      const glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
+      mainGroup.add(glowMesh);
+
+      // 2. Orbiting Rings (Gyroscope / Electron / Network effect)
+      // Multiple thin torus rings rotating on different axes
+      const ringMaterial = new THREE.MeshBasicMaterial({
+        color: 0x8b5cf6, // Secondary color
+        transparent: true,
+        opacity: 0.4,
+        wireframe: true
+      });
+
+      // Ring 1
+      const ring1 = new THREE.Mesh(new THREE.TorusGeometry(10, 0.05, 16, 100), ringMaterial);
+      // Ring 2
+      const ring2 = new THREE.Mesh(new THREE.TorusGeometry(12, 0.05, 16, 100), ringMaterial);
+      // Ring 3
+      const ring3 = new THREE.Mesh(new THREE.TorusGeometry(14, 0.05, 16, 100), ringMaterial);
+
+      mainGroup.add(ring1);
+      mainGroup.add(ring2);
+      mainGroup.add(ring3);
+
+      camera.position.z = 25;
 
       // Mouse Interaction
       let mouseX = 0;
@@ -798,18 +887,31 @@
         targetX = mouseX * 0.001;
         targetY = mouseY * 0.001;
 
-        // Smooth rotation based on mouse
-        particlesMesh.rotation.y += 0.05 * (targetX - particlesMesh.rotation.y);
-        particlesMesh.rotation.x += 0.05 * (targetY - particlesMesh.rotation.x);
-        
-        // Constant gentle rotation
-        particlesMesh.rotation.z = elapsedTime * 0.02;
+        // Group Rotation based on mouse
+        mainGroup.rotation.y += 0.05 * (targetX - mainGroup.rotation.y);
+        mainGroup.rotation.x += 0.05 * (targetY - mainGroup.rotation.x);
 
-        // Brething effect for the wireframe
-        const scale = 1 + Math.sin(elapsedTime * 0.5) * 0.05;
-        geoMesh.scale.set(scale, scale, scale);
-        geoMesh.rotation.x = elapsedTime * 0.05;
-        geoMesh.rotation.y = elapsedTime * 0.05;
+        // Background particles slow rotation
+        particlesMesh.rotation.y = elapsedTime * 0.02;
+        particlesMesh.rotation.x = elapsedTime * 0.01;
+
+        // Core Animation (Pulse & Rotate)
+        coreMesh.rotation.y = elapsedTime * 0.2;
+        coreMesh.rotation.z = elapsedTime * 0.1;
+
+        const pulse = 1 + Math.sin(elapsedTime * 1.5) * 0.05;
+        coreMesh.scale.set(pulse, pulse, pulse);
+        glowMesh.scale.set(pulse * 0.9, pulse * 0.9, pulse * 0.9);
+
+        // Ring Animations (Gyroscope effect)
+        ring1.rotation.x = elapsedTime * 0.3;
+        ring1.rotation.y = elapsedTime * 0.1;
+
+        ring2.rotation.y = elapsedTime * 0.25;
+        ring2.rotation.z = elapsedTime * 0.1;
+
+        ring3.rotation.x = elapsedTime * 0.1;
+        ring3.rotation.z = elapsedTime * 0.2;
 
         renderer.render(scene, camera);
       }
