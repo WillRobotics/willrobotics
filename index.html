@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
   <!-- Tailwind CSS (Utility classes for rapid styling if needed, but we use custom CSS primarily) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -124,6 +124,34 @@
 
     .nav-links a:hover::after {
       width: 100%;
+    }
+
+    /* SNS Icons in Nav */
+    .nav-socials {
+      display: flex;
+      gap: 1.5rem; /* 間隔を広げました (1.2rem -> 1.5rem) */
+      margin-left: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--card-border);
+      align-items: center;
+    }
+
+    .nav-socials a {
+      font-size: 1.5rem; /* サイズを大きくしました (1.1rem -> 1.5rem) */
+      color: var(--text-muted);
+      padding: 0;
+      transition: all 0.3s ease;
+      display: flex; /* 中央揃えを確実にするため */
+      align-items: center;
+    }
+    
+    .nav-socials a::after {
+      display: none; /* アイコンには下線を出さない */
+    }
+
+    .nav-socials a:hover {
+      color: var(--text-main);
+      transform: translateY(-2px);
     }
 
     /* Hamburger Menu */
@@ -480,6 +508,12 @@
         <a href="#services">Services</a>
         <a href="#projects">Works</a>
         <a href="mailto:info@willrobotics.com" style="color: var(--accent);">Contact</a>
+
+        <div class="nav-socials">
+          <a href="https://x.com/neka_nat" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://github.com/neka-nat" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://zenn.dev/neka_nat" target="_blank" aria-label="Tech Blog"><i class="fa-solid fa-book-open"></i></a>
+        </div>
       </div>
     </div>
   </nav>
